@@ -1,23 +1,18 @@
 # Data
 
-## Recommended: Sample Media Spends Data (Kaggle)
+## Included sample (works immediately)
 
-Download from:  
+`media_spends.csv` is already in the repo. It has the same structure as the Kaggle dataset (weekly channel spend + sales).
+
+Run:
+```bash
+python src/run_decisioning.py
+```
+It will automatically use this file and produce a budget decision.
+
+## Real Kaggle dataset (optional)
+
+Full original data:  
 https://www.kaggle.com/datasets/yugagrawal95/sample-media-spends-data
 
-Place the CSV file as:  
-`data/media_spends.csv`
-
-The dataset contains weekly marketing spend across channels (Facebook, Google, Email, YouTube, Affiliate, etc.) plus sales. It is explicitly suited for Media Mix Modeling and budget allocation.
-
-The pipeline will automatically detect the file and use it. If the file is missing, it falls back to synthetic data.
-
-## Expected usage
-
-The loader aggregates the latest weeks by channel, computes:
-- current budget share
-- ROAS proxy (sales / spend)
-- simple saturation estimate
-- recent trend
-
-and feeds these signals to the Measurement → Allocation → Explanation → Guardrail agents.
+You can replace `data/media_spends.csv` with the original file if you want the complete dataset. The loader will pick it up.
